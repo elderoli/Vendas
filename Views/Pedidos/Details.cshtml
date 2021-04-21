@@ -1,0 +1,52 @@
+﻿@model Vendas.Models.Pedidos
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div id="div1">
+    <h4>Pedidos</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mesa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mesa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cliente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cliente)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.telefone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.telefone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DescricaoPedido)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescricaoPedido)
+        </dd>
+    </dl>
+</div>
+<script>
+                    function imprimirpedido(el)
+                    {
+                        var restorepage = document.body.innerHtml;
+                        var printcontent = document.getElementById(el).innerHTML;
+                        document.body.innerHTML = printcontent;
+                        window.print();
+                    }
+</script>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PedidosId">Edit</a>
+    <a asp-action="Create" onclick="imprimirpedido('div1')">Enviar</a>
+    <a asp-action="Index">Back to List</a>
+</div>
